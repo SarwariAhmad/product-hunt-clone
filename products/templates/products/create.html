@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br />
+<br />
+
+
+
+
+<main class="text-center">
+  <h1>Add Products</h1>
+
+
+    {% if error %}
+      <p style="color : red;">
+    {{ error }}
+      </p>
+
+    {% endif %}
+
+  <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h6>Title:</h6>
+    <input type="text" name="title"autocomplete="off">
+    <br />
+    <h6>Body:</h6>
+    <input type="textbox" name="body"autocomplete="off">
+    <br />
+    <h6>URL:</h6>
+    <input type="text" name="url">
+    <br />
+    <h6>Icon:</h6>
+    <input type="file" name="icon">
+    <br />
+    <h6>Image:</h6>
+    <input type="file" name="image">
+    <br / />
+    <input class="btn btn-primary" type="submit" name="" value="Add Product">
+  </form>
+</main>
+<br />
+<br />
+{% endblock %}
